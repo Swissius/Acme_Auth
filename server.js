@@ -1,5 +1,9 @@
-const { syncAndSeed } = require("./db");
-const app = require("./app");
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+const { syncAndSeed } = require('./db');
+const app = require('./app');
 
 const init = async () => {
   await syncAndSeed();
